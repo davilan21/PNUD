@@ -1,0 +1,25 @@
+name: Rollback Production
+
+on:
+  workflow_dispatch:
+    inputs:
+      deployment_url:
+        description: 'Vercel deployment URL to promote (e.g. https://ges-site-abc123-davilan21.vercel.app)'
+        required: true
+        type: string
+
+jobs:
+  rollback:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Vercel CLI
+        run: npm install -g vercel
+
+      - name: Promote deployment to production
+        run: vercel promote ${{ github.event.inputs.deployment_url }} --yes --token ${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
