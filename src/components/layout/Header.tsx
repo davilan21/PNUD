@@ -1,6 +1,7 @@
 'use client'
 import Image from 'next/image'
-import { useTranslations } from 'next-intl'
+import { useTranslations, useLocale } from 'next-intl'
+import { LanguageSwitcher } from '../ui/LanguageSwitcher'
 import styles from './Header.module.css'
 
 interface HeaderProps {
@@ -9,6 +10,7 @@ interface HeaderProps {
 
 export function Header({ onDownloadClick }: HeaderProps) {
   const t = useTranslations('header')
+  const locale = useLocale()
   return (
     <header className={styles.header}>
       <div className={styles.left}>
@@ -16,6 +18,7 @@ export function Header({ onDownloadClick }: HeaderProps) {
         <span className={styles.tagline}>{t('tagline')}</span>
       </div>
       <div className={styles.right}>
+        <LanguageSwitcher currentLang={locale} />
         <button className={styles.downloadBtn} onClick={onDownloadClick}>
           ↓ {t('download')}
         </button>
