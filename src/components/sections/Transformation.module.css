@@ -1,0 +1,37 @@
+/* src/components/sections/Transformation.module.css */
+.section { background: #fff; padding: 96px 40px; }
+.inner { max-width: 1280px; margin: 0 auto; }
+
+.title {
+  font-family: var(--font-secondary);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  text-transform: uppercase;
+  color: #000;
+  margin-bottom: 48px;
+}
+
+.grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+
+.block {
+  background: var(--color-gray200);
+  border-top: 3px solid transparent;
+  padding: 32px 24px;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.block:hover { background: var(--color-lavender); border-top-color: var(--color-violet); }
+
+.blockDark { background: var(--color-violet); border-top-color: var(--color-yellow); color: #fff; }
+.blockDark:hover { background: var(--color-violetDk); }
+
+.num { font-family: var(--font-secondary); font-weight: 800; font-size: 2rem; color: var(--color-violet); opacity: 0.25; margin-bottom: 12px; }
+.blockDark .num { color: #fff; opacity: 0.4; }
+
+.blockTitle { font-size: 0.9rem; font-weight: 700; color: var(--color-gray700); margin-bottom: 8px; }
+.blockDark .blockTitle { color: #fff; }
+
+.blockBody { font-size: 0.8rem; color: var(--color-gray500); line-height: 1.5; }
+.blockDark .blockBody { color: rgba(255,255,255,0.75); }
+
+@media (max-width: 768px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .grid { grid-template-columns: 1fr; } }

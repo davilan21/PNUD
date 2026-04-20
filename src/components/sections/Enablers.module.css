@@ -1,0 +1,23 @@
+/* src/components/sections/Enablers.module.css */
+.section { background: var(--color-lavender); padding: 96px 40px; }
+.inner { max-width: 1280px; margin: 0 auto; }
+
+.title {
+  font-family: var(--font-secondary);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  text-transform: uppercase;
+  color: #000;
+  margin-bottom: 48px;
+}
+
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+.card { background: #fff; padding: 44px 36px; position: relative; }
+.cardAccent { height: 4px; background: var(--accent); margin-bottom: 24px; }
+.cardTitle { font-family: var(--font-secondary); font-weight: 700; font-size: 1.1rem; text-transform: uppercase; color: var(--color-violetDk); margin-bottom: 16px; }
+.cardBody { font-size: 0.9rem; color: var(--color-gray500); line-height: 1.6; margin-bottom: 24px; }
+.cardLink { font-size: 0.8rem; font-weight: 700; color: var(--color-rose); text-decoration: none; display: inline-flex; align-items: center; gap: 4px; transition: gap 0.15s ease; }
+.cardLink:hover { gap: 8px; }
+
+@media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }

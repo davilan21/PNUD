@@ -10,6 +10,9 @@ import { Context } from '@/components/sections/Context'
 import { Learned } from '@/components/sections/Learned'
 import { Directions } from '@/components/sections/Directions'
 import { Priorities } from '@/components/sections/Priorities'
+import { Enablers } from '@/components/sections/Enablers'
+import { Transformation } from '@/components/sections/Transformation'
+import { DownloadCTA } from '@/components/sections/DownloadCTA'
 
 export default function Home() {
   const [modalOpen, setModalOpen] = useState(false)
@@ -24,6 +27,9 @@ export default function Home() {
         <Learned />
         <Directions />
         <Priorities />
+        <Enablers />
+        <Transformation />
+        <DownloadCTA onDownloadClick={() => setModalOpen(true)} />
       </main>
       <Footer />
       <DownloadModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
