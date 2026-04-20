@@ -45,6 +45,10 @@
   --color-lavender:  #F3EEF8;
   --color-undpBlue:  #006EB5;
   --color-yellow:    #FFEB00;
+  --color-black:     #000000;
+  --color-white:     #FFFFFF;
+  --color-gray100:   #FAFAFA;
+  --color-gray200:   #F7F7F7;
   --color-gray500:   #677383;
   --color-gray700:   #232E3D;
   --font-primary:    'ProximaNova', sans-serif;
