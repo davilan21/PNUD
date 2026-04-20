@@ -49,6 +49,16 @@ export function Hero({ onDownloadClick }: { onDownloadClick: () => void }) {
 
   return (
     <section ref={heroRef} className={styles.hero}>
+      {/* Animated background figures */}
+      <div className={styles.bgFigures} aria-hidden="true">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/images/hero-illustration.png" alt="" className={`${styles.bgFigure} ${styles.bgFigure1}`} />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/images/hero-illustration.png" alt="" className={`${styles.bgFigure} ${styles.bgFigure2}`} />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/images/hero-illustration.png" alt="" className={`${styles.bgFigure} ${styles.bgFigure3}`} />
+      </div>
+
       <motion.div
         ref={particlesRef}
         className={styles.particles}
