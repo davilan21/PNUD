@@ -25,15 +25,17 @@ export function SectionNav() {
 
   return (
     <nav className={styles.nav} aria-label="Section navigation">
-      {SECTIONS.map(id => (
-        <a
-          key={id}
-          href={`#${id}`}
-          className={`${styles.link} ${active === id ? styles.active : ''}`}
-        >
-          {t(id)}
-        </a>
-      ))}
+      <div className={styles.inner}>
+        {SECTIONS.map(id => (
+          <a
+            key={id}
+            href={`#${id}`}
+            className={`${styles.link} ${active === id ? styles.active : ''}`}
+          >
+            {t(id)}
+          </a>
+        ))}
+      </div>
     </nav>
   )
 }
