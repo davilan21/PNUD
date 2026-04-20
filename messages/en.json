@@ -1,3 +1,34 @@
 {
-  "placeholder": "English messages"
+  "nav": {
+    "foreword": "Foreword",
+    "context": "Context",
+    "learned": "What We've Learned",
+    "directions": "Directions",
+    "priorities": "Priorities",
+    "enablers": "Enablers",
+    "transformation": "Transformation"
+  },
+  "header": {
+    "tagline": "Gender Equality Strategy",
+    "download": "Download Strategy"
+  },
+  "hero": {
+    "label": "UNDP Gender Equality Strategy",
+    "title": "2026–2029",
+    "ctaDownload": "Download PDF",
+    "ctaRead": "Read the strategy"
+  },
+  "foreword": {
+    "overline": "Foreword",
+    "title": "A Strategy for Transformation",
+    "quote": "Gender equality is not just a goal in itself — it is the foundation for sustainable development.",
+    "body1": "This strategy sets out UNDP's commitment to gender equality across all programmatic areas from 2026 to 2029.",
+    "body2": "It builds on lessons learned and charts a course for deeper, more systemic change.",
+    "authorName": "Achim Steiner",
+    "authorTitle": "UNDP Administrator"
+  },
+  "download": {
+    "title": "Download the Full Strategy",
+    "subtitle": "Available in six official UN languages"
+  }
 }

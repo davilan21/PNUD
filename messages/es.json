@@ -1,3 +1,34 @@
 {
-  "placeholder": "Mensajes en español"
+  "nav": {
+    "foreword": "Prólogo",
+    "context": "Contexto",
+    "learned": "Lo que hemos aprendido",
+    "directions": "Direcciones",
+    "priorities": "Prioridades",
+    "enablers": "Facilitadores",
+    "transformation": "Transformación"
+  },
+  "header": {
+    "tagline": "Estrategia de Igualdad de Género",
+    "download": "Descargar Estrategia"
+  },
+  "hero": {
+    "label": "Estrategia de Igualdad de Género del PNUD",
+    "title": "2026–2029",
+    "ctaDownload": "Descargar PDF",
+    "ctaRead": "Leer la estrategia"
+  },
+  "foreword": {
+    "overline": "Prólogo",
+    "title": "Una Estrategia para la Transformación",
+    "quote": "La igualdad de género no es solo un objetivo en sí mismo — es la base del desarrollo sostenible.",
+    "body1": "Esta estrategia establece el compromiso del PNUD con la igualdad de género en todas las áreas programáticas de 2026 a 2029.",
+    "body2": "Se basa en las lecciones aprendidas y traza un rumbo hacia un cambio más profundo y sistémico.",
+    "authorName": "Achim Steiner",
+    "authorTitle": "Administrador del PNUD"
+  },
+  "download": {
+    "title": "Descargar la Estrategia Completa",
+    "subtitle": "Disponible en seis idiomas oficiales de la ONU"
+  }
 }
