@@ -17,11 +17,10 @@ export function Hero({ onDownloadClick }: { onDownloadClick: () => void }) {
   })
   const { scrollY } = useScroll()
 
-  const floralY          = useTransform(scrollYProgress, [0, 1], ['0%', '-30%'])
-  const particlesY       = useTransform(scrollYProgress, [0, 1], ['0%', '-12%'])
-  const bgY              = useTransform(scrollYProgress, [0, 1], ['0%', '20%'])
-  const textOpacity      = useTransform(scrollYProgress, [0, 0.55], [1, 0])
-  const textY            = useTransform(scrollYProgress, [0, 0.55], ['0%', '-6%'])
+  const floralY       = useTransform(scrollYProgress, [0, 1], ['0%', '-30%'])
+  const particlesY    = useTransform(scrollYProgress, [0, 1], ['0%', '-12%'])
+  const textOpacity   = useTransform(scrollYProgress, [0, 0.55], [1, 0])
+  const textY         = useTransform(scrollYProgress, [0, 0.55], ['0%', '-6%'])
   const indicatorOpacity = useTransform(scrollY, [0, 80], [1, 0])
 
   const floralYSpring = useSpring(floralY, { stiffness: 80, damping: 20 })
@@ -29,63 +28,34 @@ export function Hero({ onDownloadClick }: { onDownloadClick: () => void }) {
   useEffect(() => {
     const container = particlesRef.current
     if (!container || shouldReduceMotion) return
-
-    const colors = [
-      'rgba(255,255,255,0.55)',
-      'rgba(255,235,100,0.6)',
-      'rgba(255,200,220,0.5)',
-      'rgba(200,170,255,0.55)',
-      'rgba(255,255,255,0.35)',
-    ]
-
-    for (let i = 0; i < 55; i++) {
-      const el = document.createElement('div')
-      const isCircle = Math.random() > 0.45
-      const size = 4 + Math.random() * 9
-      const color = colors[Math.floor(Math.random() * colors.length)]
-      const dur = 14 + Math.random() * 20
-      const delay = Math.random() * 8
-
+    const shapes = ['◆', '●', '▲', '◯', '◉']
+    for (let i = 0; i < 38; i++) {
+      const el = document.createElement('span')
+      el.textContent = shapes[i % shapes.length]
       el.style.cssText = `
-        position: absolute;
-        width: ${size}px;
-        height: ${size}px;
-        left: ${Math.random() * 100}%;
-        top: ${Math.random() * 100}%;
-        background: ${color};
-        border-radius: ${isCircle ? '50%' : '2px'};
-        clip-path: ${isCircle ? 'none' : 'polygon(50% 0%, 0% 100%, 100% 100%)'};
-        animation: shapeDrift ${dur}s ${delay}s ease-in-out infinite alternate;
-        pointer-events: none;
-        will-change: transform, opacity;
+        position:absolute;
+        font-size:${10 + Math.random() * 28}px;
+        left:${Math.random() * 100}%;
+        top:${Math.random() * 100}%;
+        opacity:0.22;
+        color:hsl(${270 + Math.random() * 30},60%,${60 + Math.random() * 20}%);
+        animation:particleDrift ${12 + Math.random() * 18}s ${Math.random() * 6}s ease-in-out infinite alternate;
+        pointer-events:none;
       `
       container.appendChild(el)
     }
-
     return () => { if (container) container.innerHTML = '' }
   }, [shouldReduceMotion])
 
   return (
     <section ref={heroRef} className={styles.hero}>
-      {/* Background illustration with parallax */}
-      <motion.div
-        className={styles.heroBg}
-        aria-hidden="true"
-        style={shouldReduceMotion ? {} : { y: bgY }}
-      >
-        <Image
-          src="/images/hero-illustration.png"
-          alt=""
-          fill
-          priority
-          className={styles.heroBgImg}
-        />
-      </motion.div>
+      <div className={styles.blobs} aria-hidden="true">
+        <div className={`${styles.blob} ${styles.blob1}`} />
+        <div className={`${styles.blob} ${styles.blob2}`} />
+        <div className={`${styles.blob} ${styles.blob3}`} />
+        <div className={`${styles.blob} ${styles.blob4}`} />
+      </div>
 
-      {/* Gradient overlay */}
-      <div className={styles.overlay} aria-hidden="true" />
-
-      {/* Floating geometric particles */}
       <motion.div
         ref={particlesRef}
         className={styles.particles}
