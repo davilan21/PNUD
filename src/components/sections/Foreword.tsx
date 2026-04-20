@@ -28,7 +28,7 @@ export function Foreword() {
         </ScrollReveal>
         <ScrollReveal direction="right">
           <div className={styles.imageWrap}>
-            <Image src="/images/field.jpg" alt="Field" fill className={styles.image} />
+            <Image src="/images/field.jpg" alt="UNDP field programme — women in development" fill className={styles.image} />
           </div>
         </ScrollReveal>
       </div>

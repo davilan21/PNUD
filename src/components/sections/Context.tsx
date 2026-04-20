@@ -1,3 +1,5 @@
+'use client'
+import { useTranslations } from 'next-intl'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
 import styles from './Context.module.css'
 
@@ -17,6 +19,7 @@ const CHALLENGES = [
 ]
 
 export function Context() {
+  const t = useTranslations('context')
   return (
     <section id="context" className={styles.section}>
       <div className={styles.inner}>
@@ -32,7 +35,7 @@ export function Context() {
         </ScrollReveal>
         <ScrollReveal direction="right">
           <div className={styles.challenges}>
-            <h2 className={styles.title}>The Context</h2>
+            <h2 className={styles.title}>{t('title')}</h2>
             {CHALLENGES.map(({ title, desc }, i) => (
               <div key={i} className={styles.challengeItem}>
                 <div className={styles.num}>{i + 1}</div>

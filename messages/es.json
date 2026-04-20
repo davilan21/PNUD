@@ -27,6 +27,9 @@
     "authorName": "Achim Steiner",
     "authorTitle": "Administrador del PNUD"
   },
+  "context": {
+    "title": "El Contexto"
+  },
   "download": {
     "title": "Descargar la Estrategia Completa",
     "subtitle": "Disponible en seis idiomas oficiales de la ONU"
