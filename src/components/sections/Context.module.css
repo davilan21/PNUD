@@ -1,0 +1,56 @@
+.section { background: var(--color-violetDk); padding: 96px 40px; color: #fff; }
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.statsGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+.statCard {
+  background: rgba(255,255,255,0.07);
+  border-top: 3px solid var(--color-yellow);
+  padding: 32px 28px;
+}
+
+.statNum {
+  font-family: var(--font-secondary);
+  font-weight: 800;
+  font-size: 3rem;
+  color: var(--color-yellow);
+}
+
+.statLabel { font-size: 0.85rem; color: rgba(255,255,255,0.8); line-height: 1.4; margin-top: 8px; }
+
+.title {
+  font-family: var(--font-secondary);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  text-transform: uppercase;
+  margin-bottom: 32px;
+}
+
+.challengeItem { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 20px; }
+
+.num {
+  width: 36px;
+  height: 36px;
+  background: var(--color-rose);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.challengeText { font-size: 0.9rem; color: rgba(255,255,255,0.85); line-height: 1.5; }
+
+@media (max-width: 768px) {
+  .inner { grid-template-columns: 1fr; }
+  .statsGrid { grid-template-columns: 1fr 1fr; }
+}

@@ -5,6 +5,10 @@ import { SectionNav } from '@/components/layout/SectionNav'
 import { Footer } from '@/components/layout/Footer'
 import { DownloadModal } from '@/components/ui/DownloadModal'
 import { Hero } from '@/components/sections/Hero'
+import { Foreword } from '@/components/sections/Foreword'
+import { Context } from '@/components/sections/Context'
+import { Directions } from '@/components/sections/Directions'
+import { Priorities } from '@/components/sections/Priorities'
 
 export default function Home() {
   const [modalOpen, setModalOpen] = useState(false)
@@ -14,6 +18,10 @@ export default function Home() {
       <SectionNav />
       <main style={{ paddingTop: '112px' }}>
         <Hero onDownloadClick={() => setModalOpen(true)} />
+        <Foreword />
+        <Context />
+        <Directions />
+        <Priorities />
       </main>
       <Footer />
       <DownloadModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
