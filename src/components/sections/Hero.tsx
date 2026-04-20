@@ -17,10 +17,10 @@ export function Hero({ onDownloadClick }: { onDownloadClick: () => void }) {
   })
   const { scrollY } = useScroll()
 
-  const floralY       = useTransform(scrollYProgress, [0, 1], ['0%', '-30%'])
-  const particlesY    = useTransform(scrollYProgress, [0, 1], ['0%', '-12%'])
-  const textOpacity   = useTransform(scrollYProgress, [0, 0.55], [1, 0])
-  const textY         = useTransform(scrollYProgress, [0, 0.55], ['0%', '-6%'])
+  const floralY          = useTransform(scrollYProgress, [0, 1], ['0%', '-30%'])
+  const particlesY       = useTransform(scrollYProgress, [0, 1], ['0%', '-12%'])
+  const textOpacity      = useTransform(scrollYProgress, [0, 0.55], [1, 0])
+  const textY            = useTransform(scrollYProgress, [0, 0.55], ['0%', '-6%'])
   const indicatorOpacity = useTransform(scrollY, [0, 80], [1, 0])
 
   const floralYSpring = useSpring(floralY, { stiffness: 80, damping: 20 })
@@ -49,11 +49,11 @@ export function Hero({ onDownloadClick }: { onDownloadClick: () => void }) {
 
   return (
     <section ref={heroRef} className={styles.hero}>
-      <div className={styles.blobs} aria-hidden="true">
-        <div className={`${styles.blob} ${styles.blob1}`} />
-        <div className={`${styles.blob} ${styles.blob2}`} />
-        <div className={`${styles.blob} ${styles.blob3}`} />
-        <div className={`${styles.blob} ${styles.blob4}`} />
+      {/* Depth orbs that float independently */}
+      <div className={styles.orbs} aria-hidden="true">
+        <div className={`${styles.orb} ${styles.orb1}`} />
+        <div className={`${styles.orb} ${styles.orb2}`} />
+        <div className={`${styles.orb} ${styles.orb3}`} />
       </div>
 
       <motion.div

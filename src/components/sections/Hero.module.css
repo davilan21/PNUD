@@ -1,121 +1,124 @@
+@keyframes gradientFlow {
+  0%   { background-position: 0% 50%; }
+  25%  { background-position: 100% 0%; }
+  50%  { background-position: 100% 100%; }
+  75%  { background-position: 0% 100%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes orb1 {
+  0%   { transform: translate(0%, 0%)    scale(1); }
+  33%  { transform: translate(15%, -20%) scale(1.15); }
+  66%  { transform: translate(-10%, 15%) scale(0.9); }
+  100% { transform: translate(0%, 0%)    scale(1); }
+}
+
+@keyframes orb2 {
+  0%   { transform: translate(0%, 0%)     scale(1); }
+  40%  { transform: translate(-20%, 10%)  scale(1.2); }
+  80%  { transform: translate(10%, -15%)  scale(0.85); }
+  100% { transform: translate(0%, 0%)     scale(1); }
+}
+
+@keyframes orb3 {
+  0%   { transform: translate(0%, 0%)    scale(1); }
+  50%  { transform: translate(20%, 20%)  scale(1.1); }
+  100% { transform: translate(0%, 0%)    scale(1); }
+}
+
 @keyframes particleDrift {
   from { transform: translateY(0) rotate(0deg); }
   to   { transform: translateY(-40px) rotate(20deg); }
 }
 
-@keyframes blobDrift1 {
-  0%   { transform: translate(0, 0) scale(1);       border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%; }
-  33%  { transform: translate(40px, -30px) scale(1.06); border-radius: 45% 55% 40% 60% / 60% 40% 55% 45%; }
-  66%  { transform: translate(-20px, 20px) scale(0.96); border-radius: 55% 45% 60% 40% / 40% 55% 45% 60%; }
-  100% { transform: translate(0, 0) scale(1);       border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%; }
-}
-
-@keyframes blobDrift2 {
-  0%   { transform: translate(0, 0) scale(1);       border-radius: 45% 55% 60% 40% / 60% 40% 50% 50%; }
-  50%  { transform: translate(-50px, 40px) scale(1.08); border-radius: 60% 40% 45% 55% / 45% 55% 60% 40%; }
-  100% { transform: translate(0, 0) scale(1);       border-radius: 45% 55% 60% 40% / 60% 40% 50% 50%; }
-}
-
-@keyframes blobDrift3 {
-  0%   { transform: translate(0, 0) scale(1);       border-radius: 50% 50% 40% 60% / 55% 45% 60% 40%; }
-  40%  { transform: translate(30px, 50px) scale(0.94); border-radius: 40% 60% 55% 45% / 40% 60% 45% 55%; }
-  80%  { transform: translate(-30px, -20px) scale(1.04); border-radius: 60% 40% 50% 50% / 50% 50% 40% 60%; }
-  100% { transform: translate(0, 0) scale(1);       border-radius: 50% 50% 40% 60% / 55% 45% 60% 40%; }
-}
-
-@keyframes blobDrift4 {
-  0%   { transform: translate(0, 0) scale(1);       border-radius: 55% 45% 50% 50% / 40% 60% 40% 60%; }
-  60%  { transform: translate(-40px, -50px) scale(1.1); border-radius: 40% 60% 60% 40% / 60% 40% 50% 50%; }
-  100% { transform: translate(0, 0) scale(1);       border-radius: 55% 45% 50% 50% / 40% 60% 40% 60%; }
-}
-
 .hero {
   position: relative;
   height: 100vh;
-  background: linear-gradient(160deg, #e8c97a 0%, #d4a843 25%, #c9956e 50%, #c990a8 70%, #b07cc8 85%, #8b52b8 100%);
+  background: linear-gradient(
+    135deg,
+    #e8c97a,
+    #d4a843,
+    #c9956e,
+    #c990a8,
+    #b07cc8,
+    #8b52b8,
+    #d4a843,
+    #c990a8
+  );
+  background-size: 400% 400%;
+  animation: gradientFlow 14s ease infinite;
   overflow: hidden;
   display: flex;
   flex-direction: column;
 }
 
+/* Noise texture */
 .hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  opacity: 0.18;
+  opacity: 0.14;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   pointer-events: none;
+  z-index: 1;
 }
 
-.blobs {
+/* Floating color orbs for depth */
+.orbs {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  overflow: hidden;
   z-index: 0;
 }
 
-.blob {
+.orb {
   position: absolute;
-  filter: blur(48px);
-  opacity: 0.45;
-  will-change: transform, border-radius;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.5;
+  will-change: transform;
 }
 
-/* Large purple body — top center, slow morph */
-.blob1 {
-  width: 520px;
-  height: 580px;
-  top: -120px;
-  left: 25%;
-  background: #4c1d95;
-  border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
-  animation: blobDrift1 22s ease-in-out infinite;
+.orb1 {
+  width: 600px;
+  height: 600px;
+  top: -150px;
+  left: -100px;
+  background: radial-gradient(circle, #f5c518 0%, #d4a843 60%, transparent 100%);
+  animation: orb1 18s ease-in-out infinite;
 }
 
-/* Gold globe circle — right side */
-.blob2 {
-  width: 360px;
-  height: 360px;
-  top: 10%;
-  right: -60px;
-  background: #d97706;
-  border-radius: 45% 55% 60% 40% / 60% 40% 50% 50%;
-  animation: blobDrift2 28s ease-in-out infinite;
-  animation-delay: -8s;
+.orb2 {
+  width: 500px;
+  height: 500px;
+  bottom: -120px;
+  right: -80px;
+  background: radial-gradient(circle, #7c3aed 0%, #4c1d95 60%, transparent 100%);
+  animation: orb2 22s ease-in-out infinite;
+  animation-delay: -7s;
 }
 
-/* Rose/pink accent — bottom left */
-.blob3 {
-  width: 300px;
-  height: 320px;
-  bottom: -60px;
-  left: 5%;
-  background: #be185d;
-  border-radius: 50% 50% 40% 60% / 55% 45% 60% 40%;
-  animation: blobDrift3 34s ease-in-out infinite;
-  animation-delay: -14s;
-}
-
-/* Small deep violet — top left */
-.blob4 {
-  width: 220px;
-  height: 240px;
-  top: 5%;
-  left: -40px;
-  background: #6d28d9;
-  border-radius: 55% 45% 50% 50% / 40% 60% 40% 60%;
-  animation: blobDrift4 26s ease-in-out infinite;
-  animation-delay: -4s;
+.orb3 {
+  width: 400px;
+  height: 400px;
+  top: 20%;
+  left: 40%;
+  background: radial-gradient(circle, #db2777 0%, #be185d 60%, transparent 100%);
+  animation: orb3 26s ease-in-out infinite;
+  animation-delay: -12s;
+  opacity: 0.35;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .blob { animation: none; }
+  .hero { animation: none; background-position: 0% 50%; }
+  .orb  { animation: none; }
 }
 
-.particles { position: absolute; inset: 0; pointer-events: none; }
+.particles { position: absolute; inset: 0; pointer-events: none; z-index: 2; }
 
 .grid {
+  position: relative;
+  z-index: 3;
   flex: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -177,15 +180,8 @@
 }
 .btnGhost:hover { background: rgba(255,255,255,0.15); }
 
-.btnPrimary:focus-visible {
-  outline: 3px solid #fff;
-  outline-offset: 2px;
-}
-
-.btnGhost:focus-visible {
-  outline: 3px solid #fff;
-  outline-offset: 2px;
-}
+.btnPrimary:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+.btnGhost:focus-visible   { outline: 3px solid #fff; outline-offset: 2px; }
 
 .illustration {
   display: flex;
@@ -201,6 +197,8 @@
 }
 
 .scrollIndicator {
+  position: relative;
+  z-index: 3;
   text-align: center;
   padding-bottom: 32px;
   color: rgba(255,255,255,0.7);
