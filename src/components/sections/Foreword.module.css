@@ -46,7 +46,13 @@
 .image { object-fit: cover; }
 
 @media (max-width: 768px) {
+  .section { padding: 64px 0; }
   .grid { grid-template-columns: 1fr; }
   .text { padding: 48px 24px; }
   .imageWrap { min-height: 300px; }
+}
+
+@media (max-width: 480px) {
+  .text { padding: 40px 20px; }
+  .imageWrap { min-height: 240px; }
 }

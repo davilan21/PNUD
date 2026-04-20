@@ -4,6 +4,7 @@ import { Header } from '@/components/layout/Header'
 import { SectionNav } from '@/components/layout/SectionNav'
 import { Footer } from '@/components/layout/Footer'
 import { DownloadModal } from '@/components/ui/DownloadModal'
+import { ScrollProgress } from '@/components/ui/ScrollProgress'
 import { Hero } from '@/components/sections/Hero'
 import { Foreword } from '@/components/sections/Foreword'
 import { Context } from '@/components/sections/Context'
@@ -18,6 +19,7 @@ export default function Home() {
   const [modalOpen, setModalOpen] = useState(false)
   return (
     <>
+      <ScrollProgress />
       <Header onDownloadClick={() => setModalOpen(true)} />
       <SectionNav />
       <main style={{ paddingTop: 'var(--nav-height)' }}>

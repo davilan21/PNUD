@@ -12,16 +12,16 @@ export function Directions() {
     <section id="directions" className={styles.section}>
       <div className={styles.grid}>
         {CARDS.map(({ num, title, body, img, color }) => (
-          <div key={num} className={styles.card} tabIndex={0} role="article" aria-label={title}>
-            <Image src={img} alt={title} fill className={styles.cardImg} />
+          <article key={num} className={styles.card}>
+            <Image src={img} alt="" role="presentation" fill className={styles.cardImg} />
             <div className={styles.overlay} style={{ background: `linear-gradient(to top, ${color} 0%, transparent 60%)` }} />
             <div className={styles.content}>
-              <p className={styles.num}>{num}</p>
+              <p className={styles.num} aria-hidden="true">{num}</p>
               <h3 className={styles.title}>{title}</h3>
               <p className={styles.body}>{body}</p>
-              <div className={styles.arrow}>→</div>
+              <div className={styles.arrow} aria-hidden="true">→</div>
             </div>
-          </div>
+          </article>
         ))}
       </div>
     </section>

@@ -36,6 +36,10 @@
   transition: color 0.15s ease;
 }
 .tab:hover { color: rgba(255,255,255,0.8); }
+.tab:focus-visible {
+  outline: 3px solid var(--color-yellow);
+  outline-offset: -3px;
+}
 .tabActive { color: var(--color-yellow); border-bottom-color: var(--color-yellow); }
 
 .panel { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
@@ -83,4 +87,10 @@
 @media (max-width: 768px) {
   .panel { grid-template-columns: 1fr; }
   .panelImg { min-height: 240px; }
+}
+
+@media (max-width: 480px) {
+  .section { padding: 64px 0; }
+  .inner { padding: 0 20px; }
+  .tab { padding: 12px 14px; font-size: 0.65rem; }
 }

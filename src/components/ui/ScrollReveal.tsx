@@ -1,5 +1,5 @@
 'use client'
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { ReactNode } from 'react'
 
 type Direction = 'up' | 'left' | 'right'
@@ -17,12 +17,13 @@ const variants = {
   right: { hidden: { opacity: 0, x: 32 },  visible: { opacity: 1, x: 0 } },
 }
 
-export function ScrollReveal({
-  children,
-  direction = 'up',
-  delay = 0,
-  className,
-}: ScrollRevealProps) {
+export function ScrollReveal({ children, direction = 'up', delay = 0, className }: ScrollRevealProps) {
+  const shouldReduceMotion = useReducedMotion()
+
+  if (shouldReduceMotion) {
+    return <div className={className}>{children}</div>
+  }
+
   return (
     <motion.div
       initial="hidden"

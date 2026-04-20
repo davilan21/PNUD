@@ -1,13 +1,49 @@
-/* src/components/sections/DownloadCTA.module.css */
 .section { background: var(--color-rose); color: #fff; padding: 80px 40px; text-align: center; }
 
 .title { font-family: var(--font-secondary); font-weight: 800; font-size: clamp(1.6rem, 3vw, 2.5rem); text-transform: uppercase; margin-bottom: 16px; }
 .body { font-size: 1rem; color: rgba(255,255,255,0.88); margin-bottom: 32px; }
 
-.primaryBtn { display: block; margin: 0 auto 32px; background: #fff; color: var(--color-rose); border: none; cursor: pointer; font-family: var(--font-primary); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; padding: 14px 36px; transition: background 0.15s ease; }
+.primaryBtn {
+  display: block;
+  margin: 0 auto 32px;
+  background: #fff;
+  color: var(--color-rose);
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  padding: 14px 36px;
+  transition: background 0.15s ease;
+  min-height: 44px;
+}
 .primaryBtn:hover { background: var(--color-roseLt); }
+.primaryBtn:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
 
 .langs { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
-.langBtn { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.6); cursor: pointer; font-family: var(--font-primary); font-weight: 700; font-size: 0.8rem; padding: 8px 20px; transition: border-color 0.15s ease; }
+.langBtn {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255,255,255,0.6);
+  cursor: pointer;
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 10px 20px;
+  min-height: 44px;
+  transition: border-color 0.15s ease;
+}
 .langBtn:hover { border-color: #fff; }
+.langBtn:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+@media (max-width: 480px) {
+  .section { padding: 64px 20px; }
+}

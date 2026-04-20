@@ -60,3 +60,9 @@
   .grid { grid-template-columns: 1fr; }
   .card { min-height: 280px; }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .cardImg { transition: none; }
+  .card:hover .cardImg { transform: none; }
+  .card:hover .arrow { transform: none; }
+}

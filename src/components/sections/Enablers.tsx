@@ -22,7 +22,7 @@ export function Enablers() {
                 <div className={styles.cardAccent} />
                 <h3 className={styles.cardTitle}>{title}</h3>
                 <p className={styles.cardBody}>{body}</p>
-                <a href="#" className={styles.cardLink}>{link} →</a>
+                <span className={styles.cardLink}>{link} <span aria-hidden="true">→</span></span>
               </div>
             </ScrollReveal>
           ))}

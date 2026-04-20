@@ -32,6 +32,7 @@ export function Priorities() {
               role="tab"
               id={`tab-${i}`}
               aria-selected={i === active}
+              aria-controls="priorities-panel"
               className={`${styles.tab} ${i === active ? styles.tabActive : ''}`}
               onClick={() => setActive(i)}
               onKeyDown={(e) => handleTabKeyDown(e, i)}
@@ -40,7 +41,7 @@ export function Priorities() {
             </button>
           ))}
         </div>
-        <div className={styles.panel} role="tabpanel" aria-labelledby={`tab-${active}`}>
+        <div id="priorities-panel" className={styles.panel} role="tabpanel" aria-labelledby={`tab-${active}`}>
           <div className={styles.panelText}>
             <p className={styles.tag}>{tab.tag}</p>
             <h3 className={styles.panelTitle}>{tab.title}</h3>

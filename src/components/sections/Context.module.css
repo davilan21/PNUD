@@ -19,8 +19,9 @@
 .statNum {
   font-family: var(--font-secondary);
   font-weight: 800;
-  font-size: 3rem;
+  font-size: clamp(1.8rem, 4vw, 3rem);
   color: var(--color-yellow);
+  line-height: 1;
 }
 
 .statLabel { font-size: 0.85rem; color: rgba(255,255,255,0.8); line-height: 1.4; margin-top: 8px; }
@@ -51,6 +52,12 @@
 .challengeText { font-size: 0.9rem; color: rgba(255,255,255,0.85); line-height: 1.5; }
 
 @media (max-width: 768px) {
-  .inner { grid-template-columns: 1fr; }
+  .inner { grid-template-columns: 1fr; gap: 48px; }
   .statsGrid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 480px) {
+  .section { padding: 64px 20px; }
+  .statCard { padding: 20px 16px; }
+  .statsGrid { gap: 10px; }
 }

@@ -1,4 +1,3 @@
-/* src/components/sections/Enablers.module.css */
 .section { background: var(--color-lavender); padding: 96px 40px; }
 .inner { max-width: 1280px; margin: 0 auto; }
 
@@ -17,7 +16,11 @@
 .cardAccent { height: 4px; background: var(--accent); margin-bottom: 24px; }
 .cardTitle { font-family: var(--font-secondary); font-weight: 700; font-size: 1.1rem; text-transform: uppercase; color: var(--color-violetDk); margin-bottom: 16px; }
 .cardBody { font-size: 0.9rem; color: var(--color-gray500); line-height: 1.6; margin-bottom: 24px; }
-.cardLink { font-size: 0.8rem; font-weight: 700; color: var(--color-rose); text-decoration: none; display: inline-flex; align-items: center; gap: 4px; transition: gap 0.15s ease; }
-.cardLink:hover { gap: 8px; }
+.cardLink { font-size: 0.8rem; font-weight: 700; color: var(--color-rose); display: inline-flex; align-items: center; gap: 4px; }
 
 @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+
+@media (max-width: 480px) {
+  .section { padding: 64px 20px; }
+  .card { padding: 32px 24px; }
+}

@@ -9,13 +9,21 @@ interface DownloadModalProps {
 }
 
 const DOWNLOADS = [
-  { lang: 'EN', label: 'English', size: '4.2 MB' },
-  { lang: 'ES', label: 'Español', size: '4.1 MB' },
+  { lang: 'EN', label: 'English',  size: '4.2 MB' },
+  { lang: 'ES', label: 'Español',  size: '4.1 MB' },
   { lang: 'FR', label: 'Français', size: '4.3 MB' },
-  { lang: 'RU', label: 'Русский', size: '4.4 MB' },
-  { lang: 'ZH', label: '中文',    size: '3.9 MB' },
-  { lang: 'AR', label: 'عربي',   size: '4.0 MB' },
+  { lang: 'RU', label: 'Русский',  size: '4.4 MB' },
+  { lang: 'ZH', label: '中文',     size: '3.9 MB' },
+  { lang: 'AR', label: 'عربي',    size: '4.0 MB' },
 ]
+
+function IconClose() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <path d="M2 2L14 14M14 2L2 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    </svg>
+  )
+}
 
 export function DownloadModal({ isOpen, onClose }: DownloadModalProps) {
   const closeRef = useRef<HTMLButtonElement>(null)
@@ -46,14 +54,18 @@ export function DownloadModal({ isOpen, onClose }: DownloadModalProps) {
       >
         <div className={styles.header}>
           <h2 id="modal-title" className={styles.title}>Download the Strategy</h2>
-          <button ref={closeRef} className={styles.close} onClick={onClose} aria-label="Close">✕</button>
+          <button ref={closeRef} className={styles.close} onClick={onClose} aria-label="Close modal">
+            <IconClose />
+          </button>
         </div>
         <ul className={styles.list}>
           {DOWNLOADS.map(({ lang, label, size }) => (
             <li key={lang} className={styles.item}>
               <span className={styles.itemLabel}>{label}</span>
               <span className={styles.itemSize}>{size}</span>
-              <a href="#download" className={styles.itemBtn} download>↓ Download</a>
+              <a href={`/downloads/ges-strategy-${lang.toLowerCase()}.pdf`} className={styles.itemBtn} download>
+                <span aria-hidden="true">↓</span> Download
+              </a>
             </li>
           ))}
         </ul>

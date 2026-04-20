@@ -36,8 +36,15 @@
   font-size: 0.875rem;
   margin-bottom: 10px;
   transition: color 0.15s ease;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
 }
 .link:hover { color: #fff; }
+.link:focus-visible {
+  outline: 3px solid var(--color-yellow);
+  outline-offset: 2px;
+}
 
 .bottom {
   max-width: 1280px;
@@ -49,5 +56,10 @@
 }
 
 @media (max-width: 768px) {
-  .inner { grid-template-columns: 1fr; }
+  .inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+
+@media (max-width: 480px) {
+  .footer { padding: 48px 20px 24px; }
+  .inner { grid-template-columns: 1fr; gap: 24px; }
 }

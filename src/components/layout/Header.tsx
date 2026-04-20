@@ -15,6 +15,24 @@ const NAV_LINKS = [
   { href: '#transformation', label: 'Transformation' },
 ]
 
+function IconMenu() {
+  return (
+    <svg width="20" height="14" viewBox="0 0 20 14" fill="none" aria-hidden="true">
+      <rect width="20" height="2" rx="1" fill="currentColor"/>
+      <rect y="6" width="20" height="2" rx="1" fill="currentColor"/>
+      <rect y="12" width="20" height="2" rx="1" fill="currentColor"/>
+    </svg>
+  )
+}
+
+function IconClose() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <path d="M2 2L14 14M14 2L2 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    </svg>
+  )
+}
+
 interface HeaderProps {
   onDownloadClick: () => void
 }
@@ -32,19 +50,20 @@ export function Header({ onDownloadClick }: HeaderProps) {
       <div className={styles.right}>
         <LanguageSwitcher currentLang={locale} />
         <button className={styles.downloadBtn} onClick={onDownloadClick}>
-          ↓ {t('download')}
+          <span aria-hidden="true">↓</span> {t('download')}
         </button>
         <button
           className={styles.hamburger}
           onClick={() => setMenuOpen(o => !o)}
-          aria-label="Menu"
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={menuOpen}
+          aria-controls="mobile-nav"
         >
-          {menuOpen ? '✕' : '☰'}
+          {menuOpen ? <IconClose /> : <IconMenu />}
         </button>
       </div>
       {menuOpen && (
-        <nav className={styles.mobileNav} aria-label="Mobile navigation">
+        <nav id="mobile-nav" className={styles.mobileNav} aria-label="Mobile navigation">
           {NAV_LINKS.map(({ href, label }) => (
             <a key={href} href={href} onClick={() => setMenuOpen(false)}>{label}</a>
           ))}

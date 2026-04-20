@@ -23,7 +23,18 @@
   white-space: nowrap;
   border-bottom: 3px solid transparent;
   transition: color 0.15s ease;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
 }
 
 .link:hover { color: #fff; }
+.link:focus-visible {
+  outline: 3px solid var(--color-yellow);
+  outline-offset: -3px;
+}
 .active { color: #fff; border-bottom-color: var(--color-yellow); }
+
+@media (max-width: 480px) {
+  .link { padding: 10px 14px; font-size: 0.62rem; }
+}
