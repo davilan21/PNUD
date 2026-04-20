@@ -22,7 +22,7 @@ export function Hero({ onDownloadClick }: { onDownloadClick: () => void }) {
         top:${Math.random() * 100}%;
         opacity:0.22;
         color:hsl(${270 + Math.random() * 30},60%,${60 + Math.random() * 20}%);
-        animation:particleDrift ${12 + Math.random() * 18}s ${Math.random() * 18}s ease-in-out infinite alternate;
+        animation:particleDrift ${12 + Math.random() * 18}s ${Math.random() * 6}s ease-in-out infinite alternate;
         pointer-events:none;
       `
       container.appendChild(el)
@@ -44,7 +44,12 @@ export function Hero({ onDownloadClick }: { onDownloadClick: () => void }) {
           <h1 className={styles.title}>{t('title')}</h1>
           <div className={styles.buttons}>
             <button className={styles.btnPrimary} onClick={onDownloadClick}>↓ {t('ctaDownload')}</button>
-            <button className={styles.btnGhost}>{t('ctaRead')} →</button>
+            <button
+              className={styles.btnGhost}
+              onClick={() => document.getElementById('foreword')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              {t('ctaRead')} →
+            </button>
           </div>
         </motion.div>
         <motion.div

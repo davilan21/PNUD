@@ -85,6 +85,16 @@
 }
 .btnGhost:hover { background: rgba(255,255,255,0.15); }
 
+.btnPrimary:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+.btnGhost:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
 .illustration {
   display: flex;
   align-items: center;

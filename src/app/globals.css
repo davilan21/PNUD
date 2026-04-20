@@ -53,6 +53,7 @@
   --color-gray700:   #232E3D;
   --font-primary:    'ProximaNova', sans-serif;
   --font-secondary:  'SohneBreit', 'ProximaNova', sans-serif;
+  --nav-height: 112px;
 }
 
 html { font-family: var(--font-primary); scroll-behavior: smooth; }

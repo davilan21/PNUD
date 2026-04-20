@@ -16,7 +16,7 @@ export default function Home() {
     <>
       <Header onDownloadClick={() => setModalOpen(true)} />
       <SectionNav />
-      <main style={{ paddingTop: '112px' }}>
+      <main style={{ paddingTop: 'var(--nav-height)' }}>
         <Hero onDownloadClick={() => setModalOpen(true)} />
         <Foreword />
         <Context />
