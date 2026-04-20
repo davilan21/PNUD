@@ -1,0 +1,16 @@
+export const colors = {
+  violet:    '#5B1E8C',
+  violetDk:  '#3D0F66',
+  rose:      '#C2185B',
+  roseHover: '#A5124D',
+  roseLt:    '#FDEEF5',
+  lavender:  '#F3EEF8',
+  undpBlue:  '#006EB5',
+  yellow:    '#FFEB00',
+  black:     '#000000',
+  white:     '#FFFFFF',
+  gray100:   '#FAFAFA',
+  gray200:   '#F7F7F7',
+  gray500:   '#677383',
+  gray700:   '#232E3D',
+} as const
