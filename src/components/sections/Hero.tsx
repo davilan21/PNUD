@@ -1,119 +1,9 @@
 'use client'
 import { useEffect, useRef } from 'react'
+import Image from 'next/image'
 import { motion, useReducedMotion, useScroll, useTransform, useSpring } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import styles from './Hero.module.css'
-
-function FloralBloom() {
-  const shouldReduceMotion = useReducedMotion()
-
-  const spinCW  = (dur: number) => shouldReduceMotion ? {} : { animate: { rotate: 360  }, transition: { duration: dur, repeat: Infinity, ease: 'linear' as const } }
-  const spinCCW = (dur: number) => shouldReduceMotion ? {} : { animate: { rotate: -360 }, transition: { duration: dur, repeat: Infinity, ease: 'linear' as const } }
-  const breathe = shouldReduceMotion ? {} : {
-    animate: { scale: [1, 1.035, 1] },
-    transition: { duration: 7, repeat: Infinity, ease: 'easeInOut' as const },
-  }
-
-  const petals12 = Array.from({ length: 12 }, (_, i) => i * 30)
-  const petals10 = Array.from({ length: 10 }, (_, i) => i * 36)
-  const petals8  = Array.from({ length: 8  }, (_, i) => i * 45)
-  const petals6  = Array.from({ length: 6  }, (_, i) => i * 60)
-
-  return (
-    <motion.svg
-      viewBox="-140 -140 280 280"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-      className={styles.floralSvg}
-      {...breathe}
-    >
-      {/* Outer halo ring */}
-      <circle cx="0" cy="0" r="128" stroke="rgba(255,255,255,0.08)" strokeWidth="1" strokeDasharray="2 7"/>
-
-      {/* Layer 1 — 12 outermost petals, very delicate, slow CW */}
-      <motion.g {...spinCW(110)}>
-        {petals12.map(a => (
-          <ellipse key={a} cx="0" cy="0" rx="9" ry="90"
-            transform={`rotate(${a})`}
-            stroke="rgba(255,255,255,0.16)" strokeWidth="0.8"/>
-        ))}
-      </motion.g>
-
-      {/* Layer 2 — 10 petals, offset 18°, slow CCW */}
-      <motion.g initial={{ rotate: 18 }} {...spinCCW(85)}>
-        {petals10.map(a => (
-          <ellipse key={a} cx="0" cy="0" rx="10" ry="74"
-            transform={`rotate(${a})`}
-            stroke="rgba(255,255,255,0.24)" strokeWidth="1"/>
-        ))}
-      </motion.g>
-
-      {/* Layer 3 — 12 petals, offset 7.5°, medium CW */}
-      <motion.g initial={{ rotate: 7.5 }} {...spinCW(65)}>
-        {petals12.map(a => (
-          <ellipse key={a} cx="0" cy="0" rx="8" ry="56"
-            transform={`rotate(${a})`}
-            stroke="rgba(255,255,255,0.32)" strokeWidth="1.2"/>
-        ))}
-      </motion.g>
-
-      {/* Layer 4 — 8 petals, medium CCW */}
-      <motion.g {...spinCCW(50)}>
-        {petals8.map(a => (
-          <ellipse key={a} cx="0" cy="0" rx="7" ry="40"
-            transform={`rotate(${a})`}
-            stroke="rgba(255,255,255,0.44)" strokeWidth="1.5"/>
-        ))}
-      </motion.g>
-
-      {/* Layer 5 — 6 inner petals, faster CW */}
-      <motion.g initial={{ rotate: 30 }} {...spinCW(35)}>
-        {petals6.map(a => (
-          <ellipse key={a} cx="0" cy="0" rx="6" ry="26"
-            transform={`rotate(${a})`}
-            stroke="rgba(255,255,255,0.6)" strokeWidth="2"/>
-        ))}
-      </motion.g>
-
-      {/* Golden accent dots at outer petal tips */}
-      <motion.g {...spinCW(110)}>
-        {petals12.map(a => {
-          const rad = (a - 90) * (Math.PI / 180)
-          return (
-            <circle key={a}
-              cx={Math.cos(rad) * 90}
-              cy={Math.sin(rad) * 90}
-              r="2"
-              fill="rgba(255,235,0,0.65)"
-            />
-          )
-        })}
-      </motion.g>
-
-      {/* Smaller accent dots on layer 2 tips */}
-      <motion.g initial={{ rotate: 18 }} {...spinCCW(85)}>
-        {petals10.map(a => {
-          const rad = (a + 18 - 90) * (Math.PI / 180)
-          return (
-            <circle key={a}
-              cx={Math.cos(rad) * 74}
-              cy={Math.sin(rad) * 74}
-              r="1.5"
-              fill="rgba(255,255,255,0.45)"
-            />
-          )
-        })}
-      </motion.g>
-
-      {/* Center rings */}
-      <circle cx="0" cy="0" r="22" stroke="rgba(255,255,255,0.65)" strokeWidth="1.5"/>
-      <circle cx="0" cy="0" r="14" stroke="rgba(255,255,255,0.45)" strokeWidth="1"/>
-      <circle cx="0" cy="0" r="7"  fill="rgba(255,255,255,0.9)"/>
-      <circle cx="0" cy="0" r="3"  fill="rgba(255,235,0,1)"/>
-    </motion.svg>
-  )
-}
 
 export function Hero({ onDownloadClick }: { onDownloadClick: () => void }) {
   const t = useTranslations('hero')
@@ -196,7 +86,14 @@ export function Hero({ onDownloadClick }: { onDownloadClick: () => void }) {
           transition={{ duration: shouldReduceMotion ? 0 : 1.2, ease: [0.16, 1, 0.3, 1], delay: shouldReduceMotion ? 0 : 0.4 }}
           style={shouldReduceMotion ? {} : { y: floralYSpring }}
         >
-          <FloralBloom />
+          <Image
+            src="/images/hero-illustration.png"
+            alt="Woman holding the globe — representing UNDP's commitment to gender equality worldwide"
+            width={460}
+            height={520}
+            priority
+            className={styles.heroIllustration}
+          />
         </motion.div>
       </div>
 

@@ -101,12 +101,11 @@
   justify-content: center;
 }
 
-.globe { display: inline-block; }
-
-.floralSvg {
-  width: clamp(260px, 34vw, 420px);
-  height: clamp(260px, 34vw, 420px);
-  filter: drop-shadow(0 0 60px rgba(194,24,91,0.25)) drop-shadow(0 24px 48px rgba(61,15,102,0.35));
+.heroIllustration {
+  width: clamp(280px, 38vw, 460px);
+  height: auto;
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 24px 48px rgba(61,15,102,0.3));
 }
 
 .scrollIndicator {
