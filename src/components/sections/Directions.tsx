@@ -12,7 +12,7 @@ export function Directions() {
     <section id="directions" className={styles.section}>
       <div className={styles.grid}>
         {CARDS.map(({ num, title, body, img, color }) => (
-          <div key={num} className={styles.card}>
+          <div key={num} className={styles.card} tabIndex={0} role="article" aria-label={title}>
             <Image src={img} alt={title} fill className={styles.cardImg} />
             <div className={styles.overlay} style={{ background: `linear-gradient(to top, ${color} 0%, transparent 60%)` }} />
             <div className={styles.content}>

@@ -16,22 +16,31 @@ export function Priorities() {
   const [active, setActive] = useState(0)
   const tab = TABS[active]
 
+  const handleTabKeyDown = (e: React.KeyboardEvent, i: number) => {
+    if (e.key === 'ArrowRight') setActive((i + 1) % TABS.length)
+    if (e.key === 'ArrowLeft') setActive((i - 1 + TABS.length) % TABS.length)
+  }
+
   return (
     <section id="priorities" className={styles.section}>
       <div className={styles.inner}>
         <h2 className={styles.heading}>Signature Solutions</h2>
-        <div className={styles.tabs}>
+        <div className={styles.tabs} role="tablist">
           {TABS.map((t, i) => (
             <button
               key={i}
+              role="tab"
+              id={`tab-${i}`}
+              aria-selected={i === active}
               className={`${styles.tab} ${i === active ? styles.tabActive : ''}`}
               onClick={() => setActive(i)}
+              onKeyDown={(e) => handleTabKeyDown(e, i)}
             >
               {t.label}
             </button>
           ))}
         </div>
-        <div className={styles.panel}>
+        <div className={styles.panel} role="tabpanel" aria-labelledby={`tab-${active}`}>
           <div className={styles.panelText}>
             <p className={styles.tag}>{tab.tag}</p>
             <h3 className={styles.panelTitle}>{tab.title}</h3>
