@@ -1,0 +1,86 @@
+.section { background: var(--color-violetDk); padding: 96px 0; color: #fff; }
+
+.inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+
+.heading {
+  font-family: var(--font-secondary);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 2px solid rgba(255,255,255,0.15);
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin-bottom: 48px;
+}
+.tabs::-webkit-scrollbar { display: none; }
+
+.tab {
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  color: rgba(255,255,255,0.5);
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding: 12px 20px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.15s ease;
+}
+.tab:hover { color: rgba(255,255,255,0.8); }
+.tabActive { color: var(--color-yellow); border-bottom-color: var(--color-yellow); }
+
+.panel { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+
+.tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-yellow);
+  margin-bottom: 12px;
+}
+
+.panelTitle {
+  font-family: var(--font-secondary);
+  font-weight: 700;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.panelBody { font-size: 0.9rem; color: rgba(255,255,255,0.8); line-height: 1.6; margin-bottom: 24px; }
+
+.bullets { list-style: none; }
+.bullets li {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.75);
+  padding: 6px 0 6px 18px;
+  position: relative;
+}
+.bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  background: var(--color-yellow);
+}
+
+.panelImg { position: relative; min-height: 380px; }
+.img { object-fit: cover; border-radius: 2px; }
+
+@media (max-width: 768px) {
+  .panel { grid-template-columns: 1fr; }
+  .panelImg { min-height: 240px; }
+}
