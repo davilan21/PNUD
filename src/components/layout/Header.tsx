@@ -45,7 +45,7 @@ export function Header({ onDownloadClick }: HeaderProps) {
     <header className={styles.header}>
       <div className={styles.inner}>
         <div className={styles.left}>
-          <Image src="/images/undp-logo-blue.svg" alt="UNDP" width={100} height={40} />
+          <Image src="/images/undp-logo-blue.svg" alt="UNDP" width={130} height={52} />
           <span className={styles.tagline}>{t('tagline')}</span>
         </div>
         <div className={styles.right}>
