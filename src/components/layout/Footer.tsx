@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import styles from './Footer.module.css'
 
 export function Footer() {
@@ -22,8 +23,8 @@ export function Footer() {
         </div>
         <div className={styles.col}>
           <h4 className={styles.colTitle}>Languages</h4>
-          <a href="/en" className={styles.link}>English</a>
-          <a href="/es" className={styles.link}>Español</a>
+          <Link href="/en" className={styles.link}>English</Link>
+          <Link href="/es" className={styles.link}>Español</Link>
         </div>
       </div>
       <div className={styles.bottom}>

@@ -25,12 +25,13 @@ export function DownloadModal({ isOpen, onClose }: DownloadModalProps) {
   }, [isOpen])
 
   useEffect(() => {
+    if (!isOpen) return
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose()
     }
     document.addEventListener('keydown', handleKey)
     return () => document.removeEventListener('keydown', handleKey)
-  }, [onClose])
+  }, [isOpen, onClose])
 
   if (!isOpen) return null
 
@@ -52,7 +53,7 @@ export function DownloadModal({ isOpen, onClose }: DownloadModalProps) {
             <li key={lang} className={styles.item}>
               <span className={styles.itemLabel}>{label}</span>
               <span className={styles.itemSize}>{size}</span>
-              <a href="#" className={styles.itemBtn} download>↓ Download</a>
+              <a href="#download" className={styles.itemBtn} download>↓ Download</a>
             </li>
           ))}
         </ul>

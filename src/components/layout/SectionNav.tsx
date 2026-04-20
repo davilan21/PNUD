@@ -24,7 +24,7 @@ export function SectionNav() {
   }, [])
 
   return (
-    <nav className={styles.nav}>
+    <nav className={styles.nav} aria-label="Section navigation">
       {SECTIONS.map(id => (
         <a
           key={id}

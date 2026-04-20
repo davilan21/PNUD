@@ -55,6 +55,9 @@
   --font-secondary:  'SohneBreit', 'ProximaNova', sans-serif;
 }
 
-html { font-family: var(--font-primary); }
+html { font-family: var(--font-primary); scroll-behavior: smooth; }
 body { overflow-x: hidden; }
 img { max-width: 100%; display: block; }
+
+/* Offset for fixed header (72px) + section nav (40px approx) */
+section[id] { scroll-margin-top: 120px; }
