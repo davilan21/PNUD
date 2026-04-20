@@ -43,24 +43,26 @@ export function Header({ onDownloadClick }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false)
   return (
     <header className={styles.header}>
-      <div className={styles.left}>
-        <Image src="/images/undp-logo-blue.svg" alt="UNDP" width={80} height={32} />
-        <span className={styles.tagline}>{t('tagline')}</span>
-      </div>
-      <div className={styles.right}>
-        <LanguageSwitcher currentLang={locale} />
-        <button className={styles.downloadBtn} onClick={onDownloadClick}>
-          <span aria-hidden="true">↓</span> {t('download')}
-        </button>
-        <button
-          className={styles.hamburger}
-          onClick={() => setMenuOpen(o => !o)}
-          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-          aria-expanded={menuOpen}
-          aria-controls="mobile-nav"
-        >
-          {menuOpen ? <IconClose /> : <IconMenu />}
-        </button>
+      <div className={styles.inner}>
+        <div className={styles.left}>
+          <Image src="/images/undp-logo-blue.svg" alt="UNDP" width={100} height={40} />
+          <span className={styles.tagline}>{t('tagline')}</span>
+        </div>
+        <div className={styles.right}>
+          <LanguageSwitcher currentLang={locale} />
+          <button className={styles.downloadBtn} onClick={onDownloadClick}>
+            <span aria-hidden="true">↓</span> {t('download')}
+          </button>
+          <button
+            className={styles.hamburger}
+            onClick={() => setMenuOpen(o => !o)}
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-nav"
+          >
+            {menuOpen ? <IconClose /> : <IconMenu />}
+          </button>
+        </div>
       </div>
       {menuOpen && (
         <nav id="mobile-nav" className={styles.mobileNav} aria-label="Mobile navigation">
